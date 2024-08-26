@@ -70,7 +70,9 @@ docker-compose down
 Update docker-compose.yaml:
 version: '3' services: csvserver: image: infracloudio/csvserver:latest ports: - "9393:9300" volumes: - ./inputFile:/csvserver/inputdata env_file: - csvserver.env
 prometheus: image: prom/prometheus:v2.45.2 ports: - "9090:9090" volumes: - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
 Create prometheus.yml:
+
 global: scrape_interval: 15s
 scrape_configs:
 •	job_name: 'csvserver' static_configs:
